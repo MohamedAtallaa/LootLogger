@@ -17,7 +17,11 @@ class DetailsViewController: UIViewController {
 
     
     // MARK: - Properties
-    var item: Item!
+    var item: Item! {
+        didSet {
+            navigationItem.title = item.name
+        }
+    }
     
     let numberFormater: NumberFormatter = {
         let numberFormater = NumberFormatter()
@@ -47,12 +51,34 @@ class DetailsViewController: UIViewController {
         dateLabel.text = dateFormater.string(from: item.dateCreated)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        view.endEditing(true)
+        
+        // "save" changes to item
+        item.name = nameTextField.text ?? ""
+        item.serialNumber = serialTextField.text
+        if let valueText = valueTextField.text, let value = numberFormater.number(from: valueText) {
+            item.valueInDollars = value.intValue
+        }else {
+            item.valueInDollars = 0
+        }
+    }
+    
     
     // MARK: - Actions
+    @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
     
     
+}
 
-
-
-    
+// MARK: - Extensions
+extension DetailsViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
+    }
 }
