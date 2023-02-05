@@ -87,7 +87,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qja-at-z9I" userLabel="Adaptive SV">
-                                <rect key="frame" x="16" y="111" width="361" height="699"/>
+                                <rect key="frame" x="16" y="111" width="361" height="655"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="PH1-SZ-OZn" userLabel="Name SV">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="34"/>
@@ -147,7 +147,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Date Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdM-4T-eba" userLabel="DateCreated">
-                                        <rect key="frame" x="0.0" y="126" width="361" height="573"/>
+                                        <rect key="frame" x="0.0" y="126" width="361" height="529"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -158,14 +158,30 @@
                                     <constraint firstItem="Pzs-MG-ovr" firstAttribute="leading" secondItem="eGu-tL-x2d" secondAttribute="leading" id="c86-H5-YqQ"/>
                                 </constraints>
                             </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ry7-9r-cma">
+                                <rect key="frame" x="0.0" y="774" width="393" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="iMv-LZ-CFz"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="camera" id="ujX-ws-aTW">
+                                        <connections>
+                                            <action selector="choosePhotoSource:" destination="FAF-uA-023" id="x6Y-tx-jFv"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yA3-oc-neP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="qja-at-z9I" secondAttribute="trailingMargin" id="P6b-eo-Yj8"/>
-                            <constraint firstItem="yA3-oc-neP" firstAttribute="bottom" secondItem="qja-at-z9I" secondAttribute="bottom" constant="8" id="Y1x-hy-EGx"/>
+                            <constraint firstItem="ry7-9r-cma" firstAttribute="leading" secondItem="Cyd-Uj-Raa" secondAttribute="leading" id="bAT-b5-yts"/>
+                            <constraint firstAttribute="trailing" secondItem="ry7-9r-cma" secondAttribute="trailing" id="itQ-ES-Wog"/>
+                            <constraint firstItem="yA3-oc-neP" firstAttribute="bottom" secondItem="ry7-9r-cma" secondAttribute="bottom" id="qdz-Xb-5r5"/>
                             <constraint firstItem="qja-at-z9I" firstAttribute="leadingMargin" secondItem="Cyd-Uj-Raa" secondAttribute="leadingMargin" id="tLV-2V-ufI"/>
+                            <constraint firstItem="ry7-9r-cma" firstAttribute="top" secondItem="qja-at-z9I" secondAttribute="bottom" constant="8" id="vUh-4X-leg"/>
                             <constraint firstItem="qja-at-z9I" firstAttribute="top" secondItem="yA3-oc-neP" secondAttribute="top" constant="8" id="xeD-JE-hfe"/>
                         </constraints>
                         <connections>
